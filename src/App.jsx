@@ -20,6 +20,13 @@ function App() {
   setTarea('')
   }
 
+  const eliminarTarea = id => {
+    const arrayFiltrado = tareas.filter(item => item.id !== id)
+    setTareas(arrayFiltrado)
+  }
+
+  
+
   return (
 
     
