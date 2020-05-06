@@ -7,6 +7,10 @@ function App() {
 
   const [tareas, setTareas] = React.useState([])
 
+  const [modoEdicion, setModoEdicion] = React.useState(false)
+  
+  const [id, setId] = React.useState('')
+
   const agregarTarea = e => {
   e.preventDefault()
   if(!tarea.trim()){
@@ -25,7 +29,7 @@ function App() {
     setTareas(arrayFiltrado)
   }
 
-  
+
 
   return (
 
