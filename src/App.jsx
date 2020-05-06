@@ -5,7 +5,20 @@ function App() {
 
   const [tarea, setTarea] = React.useState('')
 
+  const [tareas, setTareas] = React.useState([])
 
+  const agregarTarea = e => {
+  e.preventDefault()
+  if(!tarea.trim()){
+    console.log('Campo vacio')
+    return
+  }
+  setTareas([
+    ...tareas,
+    {tarea, id: shortid.generate()}
+  ])
+  setTarea('')
+  }
 
   return (
 
