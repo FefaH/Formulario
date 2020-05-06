@@ -2,7 +2,9 @@ import React from 'react';
 
 function App() {
 
-  
+  const [tarea, setTarea] = React.useState('')
+
+
 
   return (
 
@@ -37,6 +39,8 @@ function App() {
           type="text" 
           className="form-control mb-2"
           placeholder="Ingrese Tarea"
+          onChange={e => setTarea(e.target.value)}
+          value={tarea}
         />
         <button className="btn btn-dark btn-block" type="submit">Agregar</button>
       </form>
