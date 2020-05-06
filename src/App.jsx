@@ -29,6 +29,26 @@ function App() {
     setTareas(arrayFiltrado)
   }
 
+  const editar = item => {
+    setModoEdicion(true)
+    setTarea(item.tarea)
+    setId(item.id)
+  }
+
+  const editarTarea = e => {
+    e.preventDefault()
+    if(!tarea.trim()){
+      console.log('Campo vacio')
+      return
+    }
+  
+    const arrayEditado = tareas.map(item => item.id === id ? {id, tarea} : item)
+    setTareas(arrayEditado)
+    setModoEdicion(false)
+    setTarea('')
+    setId('')
+  }
+
 
 
   return (
@@ -65,9 +85,11 @@ function App() {
 
     <div className="col-4">
       <h4 className="text-center">
-        Agregar Tarea
+        {
+          modoEdicion ? 'Editar Tarea' : 'Agregar Tarea'
+        }
       </h4>
-      <form>
+      <form onSubmit={modoEdicion ? editarTarea : agregarTarea} >
         <input 
           type="text" 
           className="form-control mb-2"
@@ -75,7 +97,13 @@ function App() {
           onChange={e => setTarea(e.target.value)}
           value={tarea}
         />
-        <button className="btn btn-dark btn-block" type="submit">Agregar</button>
+        {
+          modoEdicion ? (
+            <button className="btn btn-warning btn-block" type="submit">Editar</button>
+          ) : (
+            <button className="btn btn-dark btn-block" type="submit">Agregar</button>
+          )
+        }
       </form>
     </div>
 
