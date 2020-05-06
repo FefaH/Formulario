@@ -56,7 +56,7 @@ function App() {
     
 
     <div className="container mt-5">
-  <h1 className="text-center">CRUD APP</h1>
+  <h1 className="text-center">Formulario</h1>
   <hr/>
   <div className="row">
 
